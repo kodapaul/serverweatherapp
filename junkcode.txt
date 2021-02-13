@@ -1,0 +1,33 @@
+    public function sample(){
+        $new_array = [];
+        $jsonString = file_get_contents(base_path('public/citylist.json'));
+        $countries = file_get_contents(base_path('public/country.json'));
+        
+        
+
+        foreach(json_decode($jsonString) as $items){
+            $code_country =  $items->city->country;
+            $real_country = '';
+            foreach(json_decode($countries) as $country){
+                if($country->code == $code_country){
+                    $real_country = $country->name;
+                    break;
+                }
+            }
+            $new_array[$items->city->id->numberLong] = [
+                'id'=>$items->city->id->numberLong,
+                'name'=>$items->city->name,
+                'findname'=>$items->city->findname,
+                'country'=>$real_country,
+                'country_code'=>$items->city->country,
+                'lon'=>$items->city->coord->lon,
+                'lat'=>$items->city->coord->lat
+            ];
+        }
+
+        $data = json_encode($new_array);
+        $file = 'city'.'_file2.json';
+        $destinationPath=public_path()."/";
+        File::put($destinationPath.$file,$data);
+        dd('success');        
+    }
