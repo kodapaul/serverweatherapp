@@ -1,5 +1,5 @@
 ## Weather App 
-
+by: Paul Dela Vega
 This is a weather app that focuses on weather guide for tourists.
 
 ## Features
@@ -21,3 +21,4 @@ Step by step Set up:
 - Run $ php artisan serve
 
 Note: Please make sure composer is updated and you are using php 7.3 and above.
+Note: Make sure you are running clientweatherapp. To set up you can clone the repo here: https://github.com/thepauldv/clientweatherapp.git
