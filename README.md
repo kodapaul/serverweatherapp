@@ -1,5 +1,6 @@
 ## Weather App 
 by: Paul Dela Vega
+
 This is a weather app that focuses on weather guide for tourists.
 
 ## Features
